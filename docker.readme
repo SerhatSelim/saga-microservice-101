@@ -1,0 +1,18 @@
+docker run --name pgadmin4 -p 5050:80 -e "PGADMIN_DEFAULT_EMAIL=selimsrht@gmail.com" -e "PGADMIN_DEFAULT_PASSWORD=mysecretpassword" -d  dpage/pgadmin4
+docker run --name some-postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
+
+docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
+
+
+
+docker exec -it df6bd5c76d71 bash
+root@df6bd5c76d71:/# psql -U postgres
+postgres-# CREATE DATABASE mytest;
+postgres-# \q
+
+psql postgresql://postgres:mysecretpassword@localhost:5432/postgres
+
+
+
+
